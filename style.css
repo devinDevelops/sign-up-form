@@ -63,6 +63,14 @@ h1 {
   color: #fff;
 }
 
+span {
+  color: #A72536;
+}
+
+input + span {
+  display: none;
+}
+
 button,
 input {
   font-family: inherit;
@@ -72,21 +80,34 @@ input {
 }
 
 input {
-  padding: 14px 10px;
+  padding: 16px 10px;
   font-size: 18px;
   border: none;
   border-radius: 4px;
   margin-top: 4px;
 }
 
+*:focus {
+  outline: 2px solid #808080;
+}
+
+/* while input is not empty and not in focus, validate and display appropriate styling */
+/* https://css-tricks.com/snippets/css/form-validation-styling-on-input-focus/ */
+
+input:invalid:not(:placeholder-shown):not(:focus) {
+  border: 2px solid #A72536;
+  padding: 14px 8px;
+}
+
+input:valid:not(:placeholder-shown):not(:focus) {
+  border: 2px solid #229d8c;
+  padding: 14px 8px;
+}
+
 form {
   margin: 0 20px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-
-  /* column layout for mobile view? */
-  /* display: flex;
-  flex-direction: column; */
   gap: 20px 30px;
 }
 
@@ -122,4 +143,8 @@ a:visited {
 
 a:hover {
   color: #ccc;
+}
+
+a:active {
+  text-decoration: none;
 }
